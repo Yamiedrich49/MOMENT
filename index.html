@@ -9,15 +9,22 @@
 <style>
 :root{--paper:#f6f8f3;--ink:#17434b;--quiet:#79938f;--teal:#0aaca8;--dark:#087e7e;--line:#e1e9e2;--gold:#cfa66d}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;width:100%;height:100%;overflow:hidden}body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;background:var(--paper);color:var(--ink);overscroll-behavior:none}button{font:inherit;border:0;cursor:pointer;-webkit-appearance:none;touch-action:manipulation}button:focus-visible{outline:3px solid #13a9b5;outline-offset:2px}.app{height:100vh;height:100dvh;max-width:610px;padding:env(safe-area-inset-top) 15px env(safe-area-inset-bottom);display:flex;flex-direction:column;margin:auto;gap:0}.top{min-height:62px;height:62px;display:flex;align-items:center;justify-content:space-between}.identity{display:flex;align-items:center;gap:10px}.logo{width:39px;height:39px;border-radius:13px;background:#163c43;display:grid;place-items:center;box-shadow:0 4px 14px #123b4024}.logo svg{width:31px;height:31px}.wordmark{font-size:19px;letter-spacing:.20em;font-weight:900;line-height:1}.wordsub{font-size:8px;letter-spacing:.24em;font-weight:750;color:#91a4a0;margin-top:6px}.toolbox{display:flex;gap:7px}.iconbtn{width:41px;height:41px;background:#fff;border:1px solid #e5eae4;color:#6a827e;border-radius:14px;display:grid;place-items:center;box-shadow:0 3px 10px #254c4108}.iconbtn svg{width:20px;height:20px}.intro{padding:5px 2px 9px}.eyebrow{font-size:10px;letter-spacing:.14em;font-weight:850;color:var(--dark);display:flex;justify-content:space-between}.eyebrow span:last-child{color:#879e99;font-variant-numeric:tabular-nums}.intro h1{font-size:clamp(19px,5.0vw,24px);letter-spacing:-.045em;line-height:1.3;font-weight:850;margin:7px 0 5px}.intro p{font-size:12px;color:#738e88;line-height:1.45;font-weight:650;margin:0;min-height:18px}.chapter{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 0 8px}.chapter button{height:34px;border-radius:11px;background:#e8efea;color:#829891;font-size:11px;font-weight:800;letter-spacing:.015em;white-space:nowrap;transition:background .2s,color .2s,box-shadow .2s}.chapter button.on{color:#fff;background:#155760;box-shadow:0 4px 12px #1a777227}.stepbar{display:flex;gap:4px;padding:0 0 10px}.stepbar span{height:4px;flex:1;border-radius:8px;background:#e3ebe3}.stepbar span.completed{background:#a0d5c8}.stepbar span.current{background:#0cacac}.stepbar span:nth-child(3n):not(:last-child){margin-right:5px}.stage{position:relative;flex:1;min-height:0;overflow:hidden;border-radius:27px;background:radial-gradient(ellipse at 50% 27%,#fffefa 0%,#f3f7f0 65%,#ecf4ef 100%);border:1px solid #e1e8df;box-shadow:0 12px 25px #1c524416,0 1px 3px #1c52440c;isolation:isolate}.stage:before{content:"";pointer-events:none;position:absolute;inset:0;background-image:radial-gradient(#9cbcb0 .75px,transparent .75px);background-size:27px 27px;opacity:.21;mask-image:linear-gradient(#0008,transparent 79%)}canvas{width:100%;height:100%;position:absolute;inset:0;touch-action:none;cursor:grab}canvas:active{cursor:grabbing}.stage-head{position:absolute;pointer-events:none;z-index:2;left:17px;right:17px;top:16px;display:flex;justify-content:space-between;color:#9aafa7;font-size:10px;font-weight:800;letter-spacing:.1em}.stage-end{position:absolute;pointer-events:none;z-index:2;bottom:17px;left:12px;right:12px;text-align:center;min-height:17px;color:#809d91;font-size:11px;font-weight:750;letter-spacing:.02em;transition:color .3s}.stage-end.good{color:#0b9187}.tip{position:absolute;pointer-events:none;z-index:2;top:73%;left:50%;transform:translateX(-50%);font-size:11px;font-weight:770;color:#64988c;white-space:nowrap;background:#fffffff0;border:1px solid #dcebe3;box-shadow:0 6px 20px #36766b10;padding:7px 11px;border-radius:99px;transition:opacity .25s}.stage.cascade .tip{top:85%}.stage.cascade .victory-pill{top:85%}.tip.hide{opacity:0}.victory{position:absolute;pointer-events:none;inset:0;display:grid;place-items:center;z-index:3;opacity:0;transform:translateY(7px);transition:opacity .4s,transform .4s}.victory.on{opacity:1;transform:none}.victory-pill{position:absolute;top:75%;left:50%;transform:translate(-50%,-50%);border-radius:22px;border:1px solid #d8e9df;background:#ffffffee;padding:11px 21px;text-align:center;box-shadow:0 13px 33px #16594e1d;backdrop-filter:blur(10px);white-space:nowrap}.victory-pill strong{font-size:19px;letter-spacing:.01em}.victory-pill small{display:block;font-size:9px;letter-spacing:.15em;font-weight:850;color:#64afa1;margin-top:3px}.victory-pill em{font-style:normal;color:#0ea49a;font-size:17px;padding-right:6px}.controls{display:flex;align-items:center;gap:8px;min-height:76px;padding:10px 0 6px}.circlebtn{height:52px;width:52px;flex:none;background:#fff;color:#66837b;border:1px solid #e4ece6;border-radius:16px;display:grid;place-items:center;box-shadow:0 4px 12px #174d3f0a}.circlebtn:disabled{opacity:.3}.circlebtn svg{width:21px;height:21px}.next{height:52px;flex:1;display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:850;background:#e1eae4;color:#9cafaa;border-radius:17px;transition:transform .1s,background .25s,color .25s}.next.ready{color:white;background:linear-gradient(115deg,#0bb1a8,#087d87);box-shadow:0 7px 17px #17b1a52a}.next:active:not(:disabled){transform:scale(.983)}.next svg{width:18px;height:18px}.foot{height:22px;min-height:22px;display:flex;align-items:center;justify-content:space-between;padding:0 5px;color:#9baba2;font-weight:650;font-size:9px;letter-spacing:.08em}@media(max-height:730px){.top{height:50px;min-height:50px}.logo{width:34px;height:34px}.logo svg{width:28px;height:28px}.iconbtn{width:36px;height:36px}.intro{padding:2px 2px 5px}.intro h1{font-size:20px;margin:4px 0 2px}.chapter button{height:30px}.chapter{padding-bottom:5px}.stepbar{padding-bottom:7px}.controls{min-height:65px;padding:7px 0 4px}.circlebtn,.next{height:46px}.foot{height:15px;min-height:15px}.stage{border-radius:23px}.stage-head{top:10px}.stage-end{bottom:10px}.tip{top:76%}.stage.cascade .tip{top:87%}.victory-pill{top:79%}}@media(max-height:600px){.intro p{font-size:10px}.stage-head{font-size:9px}.chapter button{height:26px}.stepbar{padding-bottom:4px}.foot{display:none}}@media(min-width:580px){.app{padding-left:23px;padding-right:23px}.stage{border-radius:33px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 .next.ready:not(:disabled){box-shadow:0 6px 18px #0aa99835}.next:not(:disabled):active{transform:scale(.976)}.stage-head #rule{background:#ffffffcf;border:1px solid #e7ebdf;border-radius:99px;padding:5px 10px;letter-spacing:.03em}.stage-head #category{padding-top:5px}.stage-head #category{color:#24877d}.next.ready{background:linear-gradient(115deg,#0aaa81,#078a72);box-shadow:0 7px 18px #0c9b7133}.tip{background:#ffffffeb;border-color:#dcebe3;color:#43877f}.stage.slide .stage-head #category{color:#167f70}
+/* v8: touch-first interaction; no instructional callouts competing with the puzzle */
+.intro p{display:none;margin-top:7px}
+.intro p.show-hint{display:block;color:#607b74;font-size:12px;line-height:1.55}
+.stage-head,.tip{display:none!important}
+.stage-end{opacity:0;transform:translateY(4px);transition:opacity .2s ease,transform .2s ease}
+.stage.has-result .stage-end{opacity:1;transform:none}
+.stage{background:radial-gradient(ellipse at 50% 30%,#fffefa 0%,#f5f8f2 72%,#eef5f0 100%)}
 </style>
 </head>
 <body>
 <main class="app">
 <header class="top"><div class="identity"><div class="logo" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 7V22M7 22H33M11 22V30M29 22V30" stroke="#b5e7de" stroke-width="2.7" stroke-linecap="round"/><circle cx="20" cy="22" r="3.7" fill="#edb477"/><circle cx="11" cy="32" r="5" fill="#26c4bc"/><circle cx="29" cy="32" r="5" fill="#26c4bc"/></svg></div><div><div class="wordmark">MOMENT</div><div class="wordsub">THE MOBILE LAB</div></div></div><div class="toolbox"><button class="iconbtn" id="sound" aria-label="音のオン・オフ"><svg id="soundsvg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></button><button class="iconbtn" id="reset" aria-label="この問題を最初から"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M4 11a8 8 0 1 1 3 7M4 4v7h7"/></svg></button></div></header>
-<section class="intro" aria-live="polite"><div class="eyebrow"><span id="tag">A • THE HOLES</span><span id="stagecount">01 / 09</span></div><h1 id="title">どこで、つりあう？</h1><p id="subtitle">光る玉を左右に動かそう。</p></section>
+<section class="intro" aria-live="polite"><div class="eyebrow"><span id="tag">A • THE HOLES</span><span id="stagecount">01 / 09</span></div><h1 id="title">どこで、つりあう？</h1><p id="subtitle"></p></section>
 <nav class="chapter" aria-label="遊び方の実験室"><button data-chapter="0" class="on">穴をえらぶ</button><button data-chapter="1">玉を分ける</button><button data-chapter="2">連動させる</button></nav>
 <div class="stepbar" id="progress" aria-label="全9問の進み具合"></div>
-<section class="stage" id="field"><canvas id="game" aria-label="モビールのパズル。明るい玉だけが動かせます。緑の穴に吊るして判定ボタンで釣り合いを確認します"></canvas><div class="stage-head"><span id="category">● 緑の穴に置ける</span><span id="rule">配置中</span></div><div class="tip" id="tip">↔ の玉を、緑の穴へ</div><div class="victory" id="victory"><div class="victory-pill"><strong><em>✓</em><span id="victorylabel">ぴったり！</span></strong><small id="victorysub">PERFECT BALANCE</small></div></div><div class="stage-end" id="feedback">玉を置いたら、緑のボタンで判定</div></section>
+<section class="stage" id="field"><canvas id="game" aria-label="モビールのパズル。明るい玉だけが動かせます。緑の穴に吊るして判定ボタンで釣り合いを確認します"></canvas><div class="stage-head"><span id="category"></span><span id="rule">配置中</span></div><div class="tip" id="tip"></div><div class="victory" id="victory"><div class="victory-pill"><strong><em>✓</em><span id="victorylabel">ぴったり！</span></strong><small id="victorysub">PERFECT BALANCE</small></div></div><div class="stage-end" id="feedback"></div></section>
 <nav class="controls"><button id="prev" class="circlebtn" aria-label="ひとつ前の問題"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="m14 5-7 7 7 7"/></svg></button><button id="hint" class="circlebtn" aria-label="ヒント"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M8 15c-1-2-3-3-3-6a7 7 0 1 1 14 0c0 3-2 4-3 6l-1 2H9l-1-2Z"/></svg></button><button id="next" class="next ready" aria-label="配置したモビールを判定する"><span>判定する</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l4.6 4.6L19.8 6.4"/></svg></button></nav>
 <footer class="foot"><span>考えるって、面白い。</span><span>9 HANDCRAFTED EXPERIMENTS</span></footer>
 </main>
@@ -49,8 +56,8 @@ function torque(bar){let items=bar==='top'?puzzle.top:puzzle.children[bar]?.weig
 function barBalanced(bar){return torque(bar)===0}
 function allBalanced(){return barBalanced('top')&&(puzzle.mode!=='cascade'||barBalanced('L')&&barBalanced('R'))}
 function resetStage(index){stageIndex=clamp(index,0,8);puzzle=JSON.parse(JSON.stringify(levels[stageIndex]));solved=false;released=false;dirty=false;attempts=0;everMoved=false;hintShown=false;selectedWeight=puzzle.mode==='slide'?puzzle.top.find(w=>w.opts)?.id:null;sourceId=null;drag=null;hoverTarget=null;wonAt=0;sparkles=[];bars={};hit=[];
- $('tag').textContent=puzzle.tag;$('stagecount').textContent=String(stageIndex+1).padStart(2,'0')+' / 09';$('title').textContent=puzzle.title;$('subtitle').textContent=puzzle.sub;$('category').textContent=puzzle.mode==='slide'?'● 緑の穴に置ける':'● 玉を移動する';$('rule').textContent='配置中';
- field.classList.toggle('cascade',puzzle.mode==='cascade');field.classList.toggle('slide',puzzle.mode==='slide');$('tip').textContent=puzzle.tip;$('tip').classList.remove('hide');$('victory').classList.remove('on');$('feedback').classList.remove('good');$('feedback').textContent='玉を置いたら、緑のボタンで判定';$('prev').disabled=stageIndex===0;updateAction();
+ $('tag').textContent=puzzle.tag;$('stagecount').textContent=String(stageIndex+1).padStart(2,'0')+' / 09';$('title').textContent=puzzle.title;$('subtitle').textContent='';$('subtitle').classList.remove('show-hint');$('category').textContent=puzzle.mode==='slide'?'● 緑の穴に置ける':'● 玉を移動する';$('rule').textContent='配置中';
+ field.classList.toggle('cascade',puzzle.mode==='cascade');field.classList.toggle('slide',puzzle.mode==='slide');field.classList.remove('has-result');$('tip').textContent=puzzle.tip;$('tip').classList.remove('hide');$('victory').classList.remove('on');$('feedback').classList.remove('good');$('feedback').textContent='';$('prev').disabled=stageIndex===0;updateAction();
  document.querySelectorAll('.chapter button').forEach((x,i)=>x.classList.toggle('on',Math.floor(stageIndex/3)===i));$('progress').innerHTML=levels.map((_,i)=>`<span class="${i===stageIndex?'current':i<stageIndex?'completed':''}"></span>`).join('');
  try{localStorage.setItem('moment.lab.stage',String(stageIndex))}catch(_){}resize();}
 function resize(){const r=c.getBoundingClientRect();W=r.width;H=r.height;dpr=Math.min(3,window.devicePixelRatio||1);c.width=Math.round(W*dpr);c.height=Math.round(H*dpr);g.setTransform(dpr,0,0,dpr,0,0);bars={};}
@@ -75,17 +82,17 @@ function updateAction(){
 function relock(){
  if(!released||solved)return;
  released=false;for(const b of Object.values(bars)){b.angle=0;b.vel=0}
- $('feedback').classList.remove('good');$('feedback').textContent='動かし直して、もう一度判定';updateAction();
+ field.classList.remove('has-result');$('feedback').classList.remove('good');$('feedback').textContent='';updateAction();
 }
-function markEdited(){dirty=true;everMoved=true;$('feedback').classList.remove('good');$('feedback').textContent='決まったら、緑のボタンで判定';$('tip').classList.add('hide');updateAction()}
+function markEdited(){dirty=true;everMoved=true;field.classList.remove('has-result');$('feedback').classList.remove('good');$('feedback').textContent='';updateAction()}
 function testBalance(){
  if(solved)return;
  if(released){relock();return}
- released=true;dirty=false;attempts++;clickSound('drop');
+ released=true;dirty=false;attempts++;field.classList.add('has-result');clickSound('drop');
  updateAction();finishCheck();
  if(!solved){
   const t=torque('top');
-  $('feedback').textContent=puzzle.mode==='cascade'?'どの棒が動いたか、考えよう':t>0?'右が下がった。どう直す？':t<0?'左が下がった。どう直す？':'もう一度考えよう';
+  $('feedback').textContent=puzzle.mode==='cascade'?'傾いた棒がある':t>0?'右が下がった':t<0?'左が下がった':'もう一度';
  }
 }
 function drawBeam(bar,id){const chosen=id==='top'&&puzzle.mode==='slide'?puzzle.top.find(w=>w.id===selectedWeight):null;
@@ -130,10 +137,18 @@ function drawWeight(w,bar){
  }
  off.forEach(([dx,dy])=>drawBead(center.x+dx,center.y+dy,puzzle.mode==='cascade'?7.4:8.5,1,tactile));
  if(movable&&!solved){
-  // Always visible handle: the other grey bead bundles stay unmarked and immovable.
-  const cy=center.y+39;g.save();g.shadowColor='#1485771a';g.shadowBlur=7;
-  rounded(center.x-28,cy-11,56,22,11,isActive?'#0caa94':'#e7f8f0',isActive?'#0caa94':'#62bbb0');g.restore();
-  g.textAlign='center';g.textBaseline='middle';g.font='700 10.5px -apple-system, BlinkMacSystemFont, sans-serif';g.fillStyle=isActive?'#ffffff':'#178b80';g.fillText('↔ 動かす',center.x,cy+.5);
+  // Icon-only tactile grip integral to the hanging weight: no text or caption.
+  // First encounter: a very gentle widening of the chevrons, not an answer preview.
+  const cy=center.y+35;
+  const breathing=stageIndex===0&&!everMoved?.75+Math.sin(performance.now()*.004)*.25:0;
+  const spread=breathing*1.8;
+  g.save();g.shadowColor='#268c7b15';g.shadowBlur=5;
+  rounded(center.x-22,cy-10,44,20,10,isActive?'#dcfbef':'#e8f5ee','#9ccabc');
+  g.strokeStyle='#168c80';g.lineWidth=1.9;g.lineCap='round';g.lineJoin='round';
+  g.beginPath();g.moveTo(center.x-9-spread,cy-4);g.lineTo(center.x-13-spread,cy);g.lineTo(center.x-9-spread,cy+4);
+  g.moveTo(center.x+9+spread,cy-4);g.lineTo(center.x+13+spread,cy);g.lineTo(center.x+9+spread,cy+4);g.stroke();
+  circle(center.x,cy,3.0,'#5cc6b2');
+  g.restore();
  }
  hit.push({w,barId:whichBar(w),center,anchor:a,beads:off.map(([dx,dy])=>({x:center.x+dx,y:center.y+dy}))});
 }
@@ -152,7 +167,7 @@ function render(now){g.clearRect(0,0,W,H);hit=[];drawFixedSupport();drawBeam(bar
 }
 function frame(now){const dt=Math.min(40,now-lastFrame||16);lastFrame=now;buildGeometry(dt);render(now);requestAnimationFrame(frame)}
 function point(e){const b=c.getBoundingClientRect();return {x:e.clientX-b.left,y:e.clientY-b.top}}
-function nearestWeight(x,y,range=39){return hit.map(z=>({...z,d:Math.min(Math.hypot(x-z.center.x,y-z.center.y),Math.hypot(x-z.anchor.x,y-z.anchor.y)+9, z.w.opts?Math.hypot(x-z.center.x,y-(z.center.y+39)):.999e4)})).filter(z=>z.d<range).sort((a,b)=>a.d-b.d)[0]||null}
+function nearestWeight(x,y,range=39){return hit.map(z=>({...z,d:Math.min(Math.hypot(x-z.center.x,y-z.center.y),Math.hypot(x-z.anchor.x,y-z.anchor.y)+9, z.w.opts?Math.hypot(x-z.center.x,y-(z.center.y+35)):.999e4)})).filter(z=>z.d<range).sort((a,b)=>a.d-b.d)[0]||null}
 function chosenSlideCandidate(x,y,w){const b=bars.top,dx=x-b.x,dy=y-b.y,dist=(dx*Math.cos(b.angle)+dy*Math.sin(b.angle))/b.step;const a=positionOptions(w);return a.length?a.reduce((p,q)=>Math.abs(q-dist)<Math.abs(p-dist)?q:p,a[0]):w.p}
 function commitSlide(w,p){if(w.p===p||!positionOptions(w).includes(p))return false;w.p=p;pulseAt=performance.now();clickSound('drop');markEdited();return true}
 function previewSlide(p){
@@ -160,7 +175,7 @@ function previewSlide(p){
  if(drag.candidate!==candidate){drag.candidate=candidate;clickSound('notch');}
  drag.moving=Math.hypot(p.x-drag.start.x,p.y-drag.start.y)>7;
 }
-function transfer(source,target){if(solved||!source||!target||source===target)return false;if(source.n<=1){subtleSound();$('feedback').textContent='この束の最後の玉は、のこしてね';return false}if(target.n>=10){subtleSound();$('feedback').textContent='ここには、もう入らないみたい';return false}source.n--;target.n++;sourceId=null;hoverTarget=null;pulseAt=performance.now();clickSound('drop');markEdited();return true}
+function transfer(source,target){if(solved||!source||!target||source===target)return false;if(source.n<=1){subtleSound();return false}if(target.n>=10){subtleSound();return false}source.n--;target.n++;sourceId=null;hoverTarget=null;pulseAt=performance.now();clickSound('drop');markEdited();return true}
 function pickDrop(x,y,exclude){return nearestWeight(x,y,53)?.w?.id===exclude?null:nearestWeight(x,y,53)?.w||null}
 c.addEventListener('pointerdown',e=>{if(solved)return;const p=point(e);let z=nearestWeight(p.x,p.y,puzzle.mode==='slide'?47:42);
  if(puzzle.mode==='slide'){
@@ -172,19 +187,19 @@ c.addEventListener('pointerdown',e=>{if(solved)return;const p=point(e);let z=nea
    }}
    return;
  }
- if(!z.w.opts){$('feedback').textContent='灰色の玉は固定。↔ の玉を動かそう';return}
+ if(!z.w.opts){pulseAt=performance.now();return}
  e.preventDefault();activateSound();relock();selectedWeight=z.w.id;drag={kind:'slide',id:z.w.id,pid:e.pointerId,start:p,candidate:z.w.p,moving:false};$('tip').classList.add('hide');c.setPointerCapture(e.pointerId);
  }else{
  if(!z)return;e.preventDefault();activateSound();relock();const w=z.w;const pendingSource=sourceId&&sourceId!==w.id?sourceId:null;sourceId=w.id;drag={kind:'bead',id:w.id,pid:e.pointerId,start:p,current:p,moving:false,pendingSource};$('tip').classList.add('hide');c.setPointerCapture(e.pointerId);clickSound('pickup');
  }});
 c.addEventListener('pointermove',e=>{if(!drag||drag.pid!==e.pointerId)return;e.preventDefault();const p=point(e);if(drag.kind==='slide'){previewSlide(p)}else{drag.current=p;if(Math.hypot(p.x-drag.start.x,p.y-drag.start.y)>9)drag.moving=true;if(drag.moving){let t=pickDrop(p.x,p.y,drag.id);hoverTarget=t?t.id:null;}}});
 function pointerEnd(e,canceled=false){if(!drag||drag.pid!==e.pointerId)return;const p=point(e),d=drag;drag=null;hoverTarget=null;if(d.kind==='slide'){const w=findWeight(d.id);const ppos=chosenSlideCandidate(p.x,p.y,w);if(!canceled)commitSlide(w,ppos);return}
- const source=findWeight(d.id),target=!canceled&&d.moving?pickDrop(p.x,p.y,d.id):null;if(target)transfer(source,target);else if(!canceled&&!d.moving&&d.pendingSource)transfer(findWeight(d.pendingSource),source);else{sourceId=d.id;$('feedback').textContent='別の束をタップしても、玉を渡せるよ';}}
+ const source=findWeight(d.id),target=!canceled&&d.moving?pickDrop(p.x,p.y,d.id):null;if(target)transfer(source,target);else if(!canceled&&!d.moving&&d.pendingSource)transfer(findWeight(d.pendingSource),source);else{sourceId=d.id;}}
 c.addEventListener('pointerup',e=>{if(!drag||drag.pid!==e.pointerId)return;e.preventDefault();pointerEnd(e)});c.addEventListener('pointercancel',e=>pointerEnd(e,true));
 function finishCheck(){if(solved)return;if(allBalanced()){
- solved=true;wonAt=performance.now();sparkles=Array.from({length:20},(_,i)=>({x:18+Math.random()*(W-36),y:H*.52+Math.random()*H*.24,delay:Math.random()*.36,a:Math.random()*6.28,r:2+Math.random()*2.7,color:['#27c4ac','#e5bb7d','#92dac1'][i%3]}));$('victorylabel').textContent=attempts===1?'一発で、ぴったり！':puzzle.mode==='cascade'?'3本とも、ぴったり！':'ぴったり！';$('victory').classList.add('on');$('feedback').textContent='左右の力が、つりあった！';$('feedback').classList.add('good');$('tip').classList.add('hide');updateAction();successSound();try{if(navigator.vibrate)navigator.vibrate([14,36,25])}catch(_){}
- }else if(puzzle.mode==='cascade'){const n=['top','L','R'].filter(barBalanced).length;$('feedback').textContent=n===2?'2本が水平。あと1本！':n===1?'1本は水平。あと2本！':'どこに重さがかたよったかな？';}
- else $('feedback').textContent='どちらが下がったか、考えてみよう';}
+ solved=true;wonAt=performance.now();sparkles=Array.from({length:20},(_,i)=>({x:18+Math.random()*(W-36),y:H*.52+Math.random()*H*.24,delay:Math.random()*.36,a:Math.random()*6.28,r:2+Math.random()*2.7,color:['#27c4ac','#e5bb7d','#92dac1'][i%3]}));$('victorylabel').textContent=attempts===1?'一発で、ぴったり！':puzzle.mode==='cascade'?'3本とも、ぴったり！':'ぴったり！';$('victory').classList.add('on');$('feedback').textContent='';$('feedback').classList.add('good');$('tip').classList.add('hide');updateAction();successSound();try{if(navigator.vibrate)navigator.vibrate([14,36,25])}catch(_){}
+ }else if(puzzle.mode==='cascade'){const n=['top','L','R'].filter(barBalanced).length;$('feedback').textContent=n===2?'2本が水平':n===1?'1本が水平':'傾いた棒がある';}
+ else $('feedback').textContent='もう一度';}
 // Carefully filtered, quiet mechanical detents — no random melodic pitches while dragging.
 function activateSound(){if(!soundOn)return null;try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();if(!noiseBuffer){noiseBuffer=ac.createBuffer(1,1024,ac.sampleRate);let d=noiseBuffer.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.exp(-i/180)}return ac}catch(_){return null}}
 function smoothTone(f,t,dur,vol){if(!ac||!soundOn)return;const o=ac.createOscillator(),v=ac.createGain();o.type='sine';o.frequency.setValueAtTime(f,t);v.gain.setValueAtTime(.0001,t);v.gain.exponentialRampToValueAtTime(vol,t+.013);v.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(v).connect(ac.destination);o.start(t);o.stop(t+dur+.01)}
@@ -195,7 +210,7 @@ function subtleSound(){if(activateSound())smoothTone(240,ac.currentTime,.10,.018
 function successSound(){if(!activateSound())return;const now=ac.currentTime;[523.25,659.25,783.99,1046.5].forEach((f,i)=>smoothTone(f,now+i*.115,i===3?.55:.27,i===3?.072:.053))}
 function updateSoundIcon(){$('soundsvg').innerHTML=soundOn?'<path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/>':'<path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="m16 9 5 6m0-6-5 6"/>';}
 $('sound').addEventListener('click',()=>{soundOn=!soundOn;try{localStorage.setItem('moment.lab.sound',soundOn?'on':'off')}catch(_){}updateSoundIcon();if(soundOn)clickSound('pickup')});$('reset').addEventListener('click',()=>{clickSound('drop');resetStage(stageIndex)});$('prev').addEventListener('click',()=>{clickSound('drop');resetStage(stageIndex-1)});$('next').addEventListener('click',()=>{if(solved){clickSound('drop');resetStage(stageIndex===8?0:stageIndex+1)}else testBalance();});
-$('hint').addEventListener('click',()=>{hintShown=!hintShown;$('subtitle').textContent=hintShown?puzzle.hint:puzzle.sub;clickSound('pickup')});document.querySelectorAll('.chapter button').forEach((b,i)=>b.addEventListener('click',()=>{if(Math.floor(stageIndex/3)===i)return;clickSound('drop');resetStage(i*3)}));
+$('hint').addEventListener('click',()=>{hintShown=!hintShown;$('subtitle').textContent=hintShown?puzzle.hint:'';$('subtitle').classList.toggle('show-hint',hintShown);clickSound('pickup')});document.querySelectorAll('.chapter button').forEach((b,i)=>b.addEventListener('click',()=>{if(Math.floor(stageIndex/3)===i)return;clickSound('drop');resetStage(i*3)}));
 window.addEventListener('resize',resize);window.addEventListener('orientationchange',()=>setTimeout(resize,160));document.addEventListener('visibilitychange',()=>{lastFrame=performance.now()});
 window.addEventListener('keydown',e=>{if(solved)return;if(e.key==='Enter'){testBalance();return}if(puzzle.mode==='slide'&&['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();const w=findWeight(selectedWeight);if(!w)return;relock();const opts=positionOptions(w).sort((a,b)=>a-b);const i=opts.indexOf(w.p);const j=clamp(i+(e.key==='ArrowLeft'?-1:1),0,opts.length-1);commitSlide(w,opts[j])}});
 updateSoundIcon();resetStage(stageIndex);requestAnimationFrame(frame);
