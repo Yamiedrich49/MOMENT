@@ -88,15 +88,6 @@ function testBalance(){
   $('feedback').textContent=puzzle.mode==='cascade'?'どの棒が動いたか、見てみよう':t>0?'右が下がった。どう直す？':t<0?'左が下がった。どう直す？':'つりあったかな？';
  }
 }
-function drawSpan(x1,x2,y,color,active=false){
- const left=Math.min(x1,x2),width=Math.abs(x2-x1);
- if(width<2)return;
- g.save();g.globalAlpha=active?1:.72;
- rounded(left,y-3.5,width,7,3.5,color);
- line(x2,y+1,x2,-9,color,1.6);
- circle(x2,y,4.5,'#fff9ed',color,2);
- g.restore();
-}
 function drawStops(bar){
  if(released)return;
  for(const sign of [-1,1]){
@@ -112,18 +103,11 @@ function drawBeam(bar,id){const chosen=id==='top'&&puzzle.mode==='slide'?puzzle.
  g.save();g.translate(bar.x,bar.y);g.rotate(bar.angle);
  const extent=bar.max*bar.step+12;g.save();g.shadowColor='#1b443b21';g.shadowBlur=11;g.shadowOffsetY=6;rounded(-extent,-8,extent*2,16,7,'#b99878');g.restore();
  const varnish=g.createLinearGradient(0,-8,0,8);varnish.addColorStop(0,'#e9d4b4');varnish.addColorStop(.47,'#dfc29e');varnish.addColorStop(.53,'#c8a987');varnish.addColorStop(1,'#b39676');rounded(-extent,-8,extent*2,16,7,varnish,'#b69774');line(-extent+7,-4,extent-7,-4,'#fff8e4ad',1.6);
- // Continuous lever-arm ribbons: compare their length at a glance, without counting holes.
- const spans=id==='top'?puzzle.top:(puzzle.children?.[id]?.weights||[]);
- const selected=id==='top'&&puzzle.mode==='slide'?selectedWeight:null;
- let li=0,ri=0;
- for(const w of spans){if(w.type==='child'||w.n){
-   const side=w.p<0?-1:1,ord=side<0?li++:ri++;
-   const end=(w.id===selected&&drag?.kind==='slide'&&drag.id===w.id)?drag.candidate:w.p;
-   drawSpan(0,end*bar.step,-18-ord*9,side<0?'#ca995a':'#18a69e',w.id===selected);
- }}
+ // The wooden rod and its regularly spaced holes are the only distance cues.
+ // No colored arm-length overlay: keep the real mobile readable.
  let opts=chosen?positionOptions(chosen):[];
  for(let p=-bar.max;p<=bar.max;p++){if(!p)continue;const x=p*bar.step;circle(x,0,5,'#a88969');circle(x,-.7,2.65,'#fff3de');if(opts.includes(p)&&!solved){circle(x,0,8.4,'#0ab4a415','#0fae9d87',1.4)}}
- if(chosen&&!solved){const end=drag?.kind==='slide'&&drag.id===chosen.id?drag.candidate:chosen.p;const direction=Math.sign(end);for(let p=direction;p!==end+direction;p+=direction){circle(p*bar.step,0,3.45,'#0ba99f');circle(p*bar.step,-.35,1.75,'#eafff5')}circle(end*bar.step,0,11,'#0cab9919','#0da29a89',1.5)}
+ if(chosen&&!solved){const end=drag?.kind==='slide'&&drag.id===chosen.id?drag.candidate:chosen.p;circle(end*bar.step,0,11,'#0cab9919','#0da29a89',1.5)}
  g.restore();drawStops(bar);circle(bar.x,bar.y,8.7,'#fcfaf0','#b89c73',2);circle(bar.x,bar.y,4.0,'#e2b078');circle(bar.x-1.4,bar.y-1.5,1.15,'#fff3d4');
 }
 function beadOffsets(n){if(n===1)return[[0,0]];if(n===2)return[[-10,0],[10,0]];if(n===3)return[[-10,-9],[10,-9],[0,9]];if(n===4)return[[-10,-9],[10,-9],[-10,9],[10,9]];if(n===5)return[[-20,-9],[0,-9],[20,-9],[-10,9],[10,9]];if(n===6)return[[-20,-9],[0,-9],[20,-9],[-20,9],[0,9],[20,9]];const cols=n>=9?4:3;return Array.from({length:n},(_,i)=>[(i%cols-(cols-1)/2)*17.7,(Math.floor(i/cols)-Math.floor((Math.ceil(n/cols)-1)/2))*17.7])}
@@ -132,7 +116,7 @@ function drawWeight(w,bar){const a=geometry(bar,w.p),isActive=puzzle.mode==='sli
  rope(a.x,a.y,center.y-22);circle(a.x,a.y,6.8,'#fffdf2','#acc5b6',1.3);circle(a.x,a.y,2.8,'#d9b38e');
  if(isActive||isSelected||isHover){const p=(Math.sin(performance.now()*.004)+1)/2;circle(center.x,center.y,30+p*2.1,'#0bc5aa09',isHover?'#18b5aeb9':'#0fa69c5a',1.6)}
  off.forEach(([dx,dy])=>drawBead(center.x+dx,center.y+dy,puzzle.mode==='cascade'?7.4:8.5));
- if(isActive){circle(a.x,a.y,12,'#15b8a60d','#14b7a9b0',2.1);line(a.x-19,a.y-18,a.x-10,a.y-18,'#1da9a3',1.8);line(a.x+10,a.y-18,a.x+19,a.y-18,'#1da9a3',1.8)}
+ if(isActive){circle(a.x,a.y,12,'#15b8a60d','#14b7a9b0',2.1)}
  hit.push({w,barId:whichBar(w),center,anchor:a,beads:off.map(([dx,dy])=>({x:center.x+dx,y:center.y+dy}))});
 }
 function drawChild(mount){const upper=bars.top,lower=bars[mount.id],a=geometry(upper,mount.p),ending=lower.y-8;rope(a.x,a.y,ending);circle(a.x,a.y,8.1,'#fffdf6','#acbeb1',1.7);circle(a.x,a.y,3.5,'#e0ae72');circle(a.x,ending,3,'#e0ae72')}
